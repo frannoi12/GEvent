@@ -19,14 +19,11 @@
         </div>
         <div>
             <label for="prenom">prenom</label><br>
-            <div>
-                <input name="prenom" class="@error('prenom') is-invalid @enderror"/>
-                    @error('prenom')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-            </div>
             <input type="text" name="prenom" id="prenom" placeholder="prenom" value="{{!empty($participan) ? $participan ->user->prenom: ''}}">
         </div>
+        @error('prenom')
+            <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
         <div>
             <div>
                 <label for="email">Email</label><br>
