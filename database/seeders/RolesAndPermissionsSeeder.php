@@ -19,10 +19,10 @@ class RolesAndPermissionsSeeder extends Seeder
     {
         //Créer les roles
         $adminRole = Role::firstOrCreate(['name' => 'admin', 'guard_name' => 'web']);
-        $adminRole->delete();
+        //$adminRole->delete();
 
         $editorRole = Role::firstOrCreate(['name' => 'editor', 'guard_name' => 'web']);
-        $editorRole->delete();
+        //$editorRole->delete();
 
         /*$adminRole = Role::findByName('admin', 'web');
         $adminRole->delete();

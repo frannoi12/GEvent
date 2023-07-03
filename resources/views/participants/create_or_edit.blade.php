@@ -36,7 +36,7 @@
         </div>
         <div>
             <label for="password">Mot de passe</label><br>
-            <input type="text" name="mot_de_passe" id="password" placeholder="password" value="{{!empty($participan) ? $participan ->user->mot_de_passe: ''}}">
+            <input type="text" name="password" id="password" placeholder="password" value="{{!empty($participan) ? $participan ->user->password: ''}}">
         </div>
         <div>
             <label for="Contact">Contact</label><br>

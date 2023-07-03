@@ -30,7 +30,7 @@ class User extends Authenticatable
         'prenom',
         'contact',
         'email',
-        'mot_de_passe',
+        'password',
     ];
 
     /**
