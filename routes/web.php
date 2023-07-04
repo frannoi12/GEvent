@@ -30,6 +30,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/export-to-pdf', [ExportController::class, 'exportPDF'])
                 ->name('export.pdf');
+    Route::get('/export-to-excel', [ExportController::class, 'export'])
+        ->name('export.excel');
 });
 
 
