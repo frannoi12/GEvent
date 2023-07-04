@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Exports\UsersExport;
+use Maatwebsite\Excel\Facades\Excel;
 use PDF;
 use App\Models\User;
 
@@ -26,6 +28,10 @@ class ExportController extends Controller
         ));
         // download PDF file with download method
         return $pdf->download('pdf_users.pdf');
+    }
+
+    public function export(){
+        return Excel::download(new UsersExport,'users.xlsx');
     }
 
     /**
