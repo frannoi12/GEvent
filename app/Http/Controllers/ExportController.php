@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Exports\UsersExport;
-use Maatwebsite\Excel\Facades\Excel;
-use PDF;
-use App\Models\User;
 
+use App\Exports\UsersExport;
+use App\Models\User;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ExportController extends Controller
 {
@@ -18,21 +18,23 @@ class ExportController extends Controller
         //
     }
 
-    public function exportPDF() {
+    public function exportPDF()
+    {
         // retreive all records from db
         $data = User::all();
         // share data to view
-        view()->share('users',$data);
-        $pdf = PDF::loadView('templatePdf', array(
-            "users" => $data
+        view()->share('users', $data);
+        $pdf = Pdf::loadView('templatePdf', array(
+            "users" => $data,
         ));
         // download PDF file with download method
         return $pdf->download('pdf_users.pdf');
     }
 
-    public function export(){
+    public function export()
+    {
         $userExport = new UsersExport();
-        return Excel::download($userExport,'users.xlsx');
+        return Excel::download($userExport, 'users.xlsx');
     }
 
     /**
